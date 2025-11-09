@@ -86,7 +86,7 @@ Please read carefully [our license](LICENSE) and ask us if you have any question
 
 We've exposed the **Basic configuration** settings in Taiga to an `.env` file. We strongly recommend you to change it, or at least review its content, to avoid using the default values.
 
-Both `docker-compose.yml` and `docker-compose-inits.yml` will read from this file to populate their environment variables, so, initially you don't need to change them. Edit these files just in case you require to enable **Additional customization**, or an **Advanced configuration**.
+Both `docker-compose.yaml` and `docker-compose-inits.yaml` will read from this file to populate their environment variables, so, initially you don't need to change them. Edit these files just in case you require to enable **Additional customization**, or an **Advanced configuration**.
 
 Refer to these sections for further information.
 
@@ -188,7 +188,7 @@ You can opt out by setting this variable to False. By default, it's True.
 
 ## Additional customization
 
-All these customization options are by default disabled and require you to edit `docker-compose.yml`.
+All these customization options are by default disabled and require you to edit `docker-compose.yaml`.
 
 You should add the corresponding environment variables in the proper services (or in `&default-back-environment` group) with a valid value in order to enable them. Please, do not modify it unless you know what you’re doing.
 
@@ -369,7 +369,7 @@ ENABLE_TRELLO_IMPORTER: "true"
 
 ## Advanced configuration
 
-The advanced configuration **will ignore** the environment variables in `docker-compose.yml` or `docker-compose-inits.yml`. Skip this section if you're using env vars.
+The advanced configuration **will ignore** the environment variables in `docker-compose.yaml` or `docker-compose-inits.yaml`. Skip this section if you're using env vars.
 
 It requires you to map the configuration files of `taiga-back` and `taiga-front` services to local files in order to unlock further configuration options.
 
@@ -407,7 +407,7 @@ FORCE_SCRIPT_NAME = "/taiga"
 
 Check as well the rest of the configuration if you need to enable some advanced features.
 
-Map the file into `/taiga-back/settings/config.py`. Have in mind that you have to map it both in `docker-compose.yml` and `docker-compose-inits.yml`. You can check the `x-volumes` section in docker-compose.yml with an example.
+Map the file into `/taiga-back/settings/config.py`. Have in mind that you have to map it both in `docker-compose.yaml` and `docker-compose-inits.yaml`. You can check the `x-volumes` section in docker-compose.yaml with an example.
 
 **Map a `conf.json` file**
 
@@ -446,7 +446,7 @@ Map the file into `/taiga-front/dist/config.py`.
 ```bash
 $ docker compose up -d
 
-$ docker compose -f docker-compose.yml -f docker-compose-inits.yml run --rm taiga-manage createsuperuser
+$ docker compose -f docker-compose.yaml -f docker-compose-inits.yaml run --rm taiga-manage createsuperuser
 ```
 
 ## Up and running

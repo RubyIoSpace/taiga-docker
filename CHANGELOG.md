@@ -14,7 +14,7 @@
 
 ## 6.7.2 (2024-02-12)
 
-- Add some missed settings (email service and instance domain) to docker-compose-inits.yml
+- Add some missed settings (email service and instance domain) to docker-compose-inits.yaml
 
 ## 6.7.1 (2023-08-08)
 
@@ -87,6 +87,6 @@ Adatp to latest
 
 ### Features
 
-- main `docker-compose.yml` for Taiga installation
+- main `docker-compose.yaml` for Taiga installation
 
-- `docker-compose-inits.yml` to run `python manage.py` with docker-compose
+- `docker-compose-inits.yaml` to run `python manage.py` with docker-compose
