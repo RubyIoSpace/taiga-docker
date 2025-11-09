@@ -49,15 +49,15 @@ services:
       start_period: 3s
     volumes:
       - taiga-db-data:/var/lib/postgresql/data
-    networks:
-      - taiga
+#    networks:
+#      - taiga
 
   taiga-back:
     image: taigaio/taiga-back:latest
     environment: *default-back-environment
     volumes: *default-back-volumes
-    networks:
-      - taiga
+#    networks:
+#      - taiga
     depends_on:
       taiga-db:
         condition: service_healthy
@@ -71,8 +71,8 @@ services:
     entrypoint: ["/taiga-back/docker/async_entrypoint.sh"]
     environment: *default-back-environment
     volumes: *default-back-volumes
-    networks:
-      - taiga
+#    networks:
+#      - taiga
     depends_on:
       taiga-db:
         condition: service_healthy
@@ -91,8 +91,8 @@ services:
     hostname: "taiga-async-rabbitmq"
     volumes:
       - taiga-async-rabbitmq-data:/var/lib/rabbitmq
-    networks:
-      - taiga
+#    networks:
+#      - taiga
 
   taiga-front:
     image: taigaio/taiga-front:latest
@@ -101,8 +101,8 @@ services:
       TAIGA_WEBSOCKETS_URL: "${WEBSOCKETS_SCHEME}://${TAIGA_DOMAIN}"
       TAIGA_SUBPATH: "${SUBPATH}"
       # ...your customizations go here
-    networks:
-      - taiga
+#    networks:
+#      - taiga
     # volumes:
     #   - ./conf.json:/usr/share/nginx/html/conf.json
 
@@ -112,8 +112,8 @@ services:
       RABBITMQ_USER: "${RABBITMQ_USER}"
       RABBITMQ_PASS: "${RABBITMQ_PASS}"
       TAIGA_SECRET_KEY: "${SECRET_KEY}"
-    networks:
-      - taiga
+#    networks:
+#      - taiga
     depends_on:
       taiga-events-rabbitmq:
         condition: service_started
@@ -128,16 +128,16 @@ services:
     hostname: "taiga-events-rabbitmq"
     volumes:
       - taiga-events-rabbitmq-data:/var/lib/rabbitmq
-    networks:
-      - taiga
+#    networks:
+#      - taiga
 
   taiga-protected:
     image: taigaio/taiga-protected:latest
     environment:
       MAX_AGE: "${ATTACHMENTS_MAX_AGE}"
       SECRET_KEY: "${SECRET_KEY}"
-    networks:
-      - taiga
+#    networks:
+#      - taiga
 
   taiga-gateway:
     build: .
@@ -146,8 +146,8 @@ services:
     volumes:
       - taiga-static-data:/taiga/static
       - taiga-media-data:/taiga/media
-    networks:
-      - taiga
+#    networks:
+#      - taiga
     depends_on:
       - taiga-front
       - taiga-back
@@ -160,5 +160,5 @@ volumes:
   taiga-async-rabbitmq-data:
   taiga-events-rabbitmq-data:
 
-networks:
-  taiga:
+# networks:
+#   taiga:

@@ -38,5 +38,5 @@ services:
       - taiga-db
     entrypoint: "python manage.py"
     volumes: *default-back-volumes
-    networks:
-      - taiga
+#    networks:
+#      - taiga
