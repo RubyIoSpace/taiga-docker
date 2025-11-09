@@ -1,7 +1,6 @@
 version: "3.5"
 
-x-environment:
-  &default-back-environment
+x-environment: &default-back-environment
   # These environment variables will be used by taiga-back and taiga-async.
   # Database settings
   POSTGRES_DB: "taiga"
@@ -29,8 +28,7 @@ x-environment:
   ENABLE_TELEMETRY: "${ENABLE_TELEMETRY}"
   # ...your customizations go here
 
-x-volumes:
-  &default-back-volumes
+x-volumes: &default-back-volumes
   # These volumens will be used by taiga-back and taiga-async.
   - taiga-static-data:/taiga-back/static
   - taiga-media-data:/taiga-back/media
